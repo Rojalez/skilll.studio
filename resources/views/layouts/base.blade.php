@@ -3,39 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#fff">
+    <meta name="application-name" content="SkillUp Studio">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Skilll.Studio">
     <title>@yield('title')</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     @stack('css')
 </head>
-<body>
-<div>
-    {{--    @if (Route::has('login'))--}}
-    {{--        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">--}}
-    {{--            @auth--}}
-    {{--                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>--}}
-    {{--            @else--}}
-    {{--                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>--}}
-
-    {{--                @if (Route::has('register'))--}}
-    {{--                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>--}}
-    {{--                @endif--}}
-    {{--            @endauth--}}
-    {{--        </div>--}}
-    {{--    @endif--}}
-
-    <div>
-        @include('includes.header')
-            <div class="mt-10 bg-white">
-                @yield('content')
-            </div>
-        @include('includes.footer')
-    </div>
-</div>
-
-<!-- Scripts -->
+<body class="mx-auto w-full max-w-screen-2xl">
+    @include('includes.header')
+    @yield('content')
+    @include('includes.footer')
 <script src="{{ asset('js/app.js') }}" defer></script>
 @stack('js')
 </body>

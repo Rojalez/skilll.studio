@@ -17,6 +17,5 @@
         </div>
     </div>
 @endsection
-
 @section('isHidden', 'hidden')
 

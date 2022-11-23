@@ -1,21 +1,36 @@
 <?php
 
 use App\Http\Controllers\AdminControllers\CategoryController;
+use App\Http\Controllers\AdminControllers\ContactController;
 use App\Http\Controllers\AdminControllers\FaqController;
 use App\Http\Controllers\PublicControllers\BlogController;
+use App\Http\Controllers\PublicControllers\CookieController;
 use App\Http\Controllers\PublicControllers\HomeController;
+use App\Http\Controllers\PublicControllers\PortfolioController;
 use App\Http\Controllers\PublicControllers\PostController;
 use App\Http\Controllers\PublicControllers\PricingController;
 use App\Http\Controllers\PublicControllers\ReviewController;
+use App\Http\Controllers\PublicControllers\ServiceController;
 use App\Http\Controllers\PublicControllers\StoreLoginController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::post('/', [HomeController::class, 'store'])->name('contact.us.store');
+
 Route::get('pricing', [PricingController::class, 'index'])->name('pricing.index');
+
+Route::get('cookie', [CookieController::class, 'index'])->name('cookie.index');
+
 Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('blog/{slug}', [BlogController::class, 'category'])->name('blog.category');
+
+Route::get('portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
+//Route::get('portfolio/{slug}', [PortfolioController::class, 'item'])->name('portfolio.item');
+
+
 Route::get('author/{id}', [BlogController::class, 'author'])->name('blog.author');
+Route::get('services', [ServiceController::class, 'index'])->name('services.index');
 
 Route::get('post/{slug}', [PostController::class, 'index'])->name('post.index');
 
@@ -34,6 +49,9 @@ Route::get('admin/reviews/{id}/edit', [App\Http\Controllers\AdminControllers\Rev
 Route::put('admin/reviews/{id}', [\App\Http\Controllers\AdminControllers\ReviewController::class, 'update'])->middleware(['auth'])->name('reviews.update');
 Route::delete('admin/reviews/{id}', [\App\Http\Controllers\AdminControllers\ReviewController::class, 'delete'])->middleware(['auth'])->name('reviews.destroy');
 
+Route::get('admin/contact', [ContactController::class, 'index'])->middleware(['auth'])->name('contact.index');
+
+
 Route::get('admin/faqs', [FaqController::class, 'index'])->middleware(['auth'])->name('faqs.index');
 Route::get('admin/faqs/create', [FaqController::class, 'create'])->middleware(['auth'])->name('faqs.create');
 Route::post('admin/faqs', [FaqController::class, 'store'])->middleware(['auth'])->name('faqs.store');
@@ -47,6 +65,17 @@ Route::post('admin/blog/post', [\App\Http\Controllers\AdminControllers\BlogContr
 Route::get('admin/blog/post/{id}/edit', [\App\Http\Controllers\AdminControllers\BlogController::class, 'edit'])->middleware(['auth'])->name('posts.edit');
 Route::put('admin/blog/post/{id}', [\App\Http\Controllers\AdminControllers\BlogController::class, 'update'])->middleware(['auth'])->name('posts.update');
 Route::delete('admin/blog/post/{id}', [\App\Http\Controllers\AdminControllers\BlogController::class, 'delete'])->middleware(['auth'])->name('posts.destroy');
+
+Route::get('admin/portfolio/portfolios', [\App\Http\Controllers\AdminControllers\PortfolioController::class, 'index'])->middleware(['auth'])->name('portfolios.index');
+Route::get('admin/portfolio/portfolios/create', [\App\Http\Controllers\AdminControllers\PortfolioController::class, 'create'])->middleware(['auth'])->name('portfolios.create');
+Route::post('admin/portfolio/portfolio', [\App\Http\Controllers\AdminControllers\PortfolioController::class, 'store'])->middleware(['auth'])->name('portfolios.store');
+Route::get('admin/portfolio/portfolio/{id}/edit', [\App\Http\Controllers\AdminControllers\PortfolioController::class, 'edit'])->middleware(['auth'])->name('portfolios.edit');
+Route::put('admin/portfolio/portfolio/{id}', [\App\Http\Controllers\AdminControllers\PortfolioController::class, 'update'])->middleware(['auth'])->name('portfolios.update');
+Route::delete('admin/portfolio/portfolio/{id}', [\App\Http\Controllers\AdminControllers\PortfolioController::class, 'delete'])->middleware(['auth'])->name('portfolios.destroy');
+
+Route::get('admin/cookie', [\App\Http\Controllers\AdminControllers\CookieController::class, 'index'])->middleware(['auth'])->name('admin.cookie.index');
+Route::get('admin/cookie/{id}/edit', [\App\Http\Controllers\AdminControllers\CookieController::class, 'edit'])->middleware(['auth'])->name('cookie.edit');
+Route::put('admin/cookie/{id}', [\App\Http\Controllers\AdminControllers\CookieController::class, 'update'])->middleware(['auth'])->name('cookie.update');
 
 Route::get('admin/blog/categories', [CategoryController::class, 'index'])->middleware(['auth'])->name('categories.index');
 Route::get('admin/blog/category/create', [CategoryController::class, 'create'])->middleware(['auth'])->name('categories.create');

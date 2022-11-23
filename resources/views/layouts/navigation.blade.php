@@ -27,6 +27,12 @@
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                         {{ __('Categories') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('portfolios.index')" :active="request()->routeIs('portfolios.index')">
+                        {{ __('Portfolios') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.cookie.index')" :active="request()->routeIs('admin.cookie.index')">
+                        {{ __('Cookie') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -89,6 +95,12 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                 {{ __('Blog') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('portfolios.index')" :active="request()->routeIs('portfolios.index')">
+                {{ __('Portfolios') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.cookie.index')" :active="request()->routeIs('admin.cookie.index')">
+                {{ __('Cookie') }}
             </x-responsive-nav-link>
         </div>
 

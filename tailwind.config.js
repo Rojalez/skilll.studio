@@ -6,33 +6,10 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-    daisyui: {
-        themes: [
-            {
-                mytheme: {
-
-                    "primary": "#3B44FE",
-
-                    "secondary": "#374151",
-
-                    "accent": "#2563eb",
-
-                    "neutral": "#212730",
-
-                    "base-100": "#ffffff",
-
-                    "info": "#7dd3fc",
-
-                    "success": "#6ee7b7",
-
-                    "warning": "#fbbf24",
-
-                    "error": "#ef4444",
-                },
-            },
-        ],
-    },
     theme: {
+        fontFamily: {
+            sans: ['Nunito Sans', ...defaultTheme.fontFamily.sans],
+        },
         backgroundSize: {
             'auto': 'auto',
             'cover': 'cover',
@@ -44,6 +21,7 @@ module.exports = {
                 "transparent": "transparent",
                 "black": "#000000",
                 "white": "#ffffff",
+                "custom-blue": "#5225E2",
                 "red": "#f44336",
                 "red-50": "#ffebee",
                 "red-100": "#ffcdd2",
@@ -387,7 +365,7 @@ module.exports = {
                 "indigo-600-contrast": "white",
                 "indigo-700-contrast": "white",
                 "indigo-800-contrast": "white",
-                "indigo-900-contrast": "white",
+                "indigo-900-contrast": "#5225E2",
                 "indigo-100-accent-contrast": "black",
                 "indigo-200-accent-contrast": "white",
                 "indigo-400-accent-contrast": "white",
@@ -598,7 +576,6 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
-        require("daisyui"),
     ],
 
 };
